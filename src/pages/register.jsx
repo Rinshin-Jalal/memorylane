@@ -60,7 +60,6 @@ const Register = () => {
     setIsLoading(false);
   };
 
-  const formBackground = useColorModeValue("#060E17", "gray.700");
 
   return (
     <div className="bg-secondary min-h-screen flex items-center justify-center flex-col">

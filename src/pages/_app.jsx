@@ -1,13 +1,16 @@
 // pages/_app.js
 import "@/styles/globals.css";
 import "react-markdown-editor-lite/lib/index.css";
-import { useEffect, useRef, useState } from "react";
+import Sidebar from "@/components/Sidebar";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <Component {...pageProps} />
-    </>
+    <div className="flex h-screen">
+      <Sidebar />
+      <div className="flex-grow">
+        <Component {...pageProps} />
+      </div>
+    </div>
   );
 }
 
