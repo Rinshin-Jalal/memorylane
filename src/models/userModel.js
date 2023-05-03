@@ -22,9 +22,4 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export const userProgessModel = mongoose.model(
-  "UserProgress",
-  userProgressSchema
-);
-
 export default mongoose.model("User", userSchema);

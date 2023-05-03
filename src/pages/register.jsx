@@ -15,8 +15,6 @@ const Register = () => {
 
   const router = useRouter();
 
-  const toast = useToast();
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
@@ -41,31 +39,16 @@ const Register = () => {
       login(data);
 
       router.push("/");
-      toast({
-        title: "Account created.",
-        description: "We've created your account for you.",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
     } else {
-      toast({
-        title: "An error occurred.",
-        description: data.message,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
+      console.log(data);
     }
     setIsLoading(false);
   };
 
-
   return (
     <div className="bg-secondary min-h-screen flex items-center justify-center flex-col">
-
       {isAuthenticated === false ? (
-             <form className="w-full max-w-lg">
+        <form className="w-full max-w-lg">
           <div className="bg-primary rounded-lg px-8 py-10 mb-6">
             <h1 className="text-2xl text-center mb-6">Create an Account</h1>
             <div className="mb-6">
@@ -90,10 +73,10 @@ const Register = () => {
                 <input
                   type="text"
                   id="name"
-                  placeholder="Sid"
+                  placeholder="rinzo"
                   value={name}
                   onChange={(event) => setName(event.target.value)}
-                  className="block w-full border border-primary rounded-lg py-2 pl-10 pr-3 text-primary placeholder-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:placeholder-gray-400 sm:text-sm sm:leading-5"
+                  className="bg-gray-900 block w-full border border-primary rounded-lg py-2 pl-10 pr-3 text-primary placeholder-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:placeholder-gray-400 sm:text-sm sm:leading-5"
                 />
               </div>
             </div>
@@ -121,10 +104,10 @@ const Register = () => {
                 <input
                   type="email"
                   id="email"
-                  placeholder="sid@techoptimum.org"
+                  placeholder="rinzo@memorylane.io"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
-                  className="block w-full border border-primary rounded-lg py-2 pl-10 pr-3 text-primary placeholder-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:placeholder-gray-400 sm:text-sm sm:leading-5"
+                  className="bg-gray-900 block w-full border border-primary rounded-lg py-2 pl-10 pr-3 text-primary placeholder-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:placeholder-gray-400 sm:text-sm sm:leading-5"
                 />
               </div>
             </div>
@@ -155,7 +138,7 @@ const Register = () => {
                   placeholder="********"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
-                  className="block w-full border border-primary rounded-lg py-2 pl-10 pr-3 text-primary placeholder-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:placeholder-gray-400 sm:text-sm sm:leading-5"
+                  className="bg-gray-900 block w-full border border-primary rounded-lg py-2 pl-10 pr-3 text-primary placeholder-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:placeholder-gray-400 sm:text-sm sm:leading-5"
                 />
               </div>
             </div>
@@ -190,7 +173,7 @@ const Register = () => {
                 <button
                   type="submit"
                   onClick={handleSubmit}
-                  className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-primary bg-gray-300 hover:bg-gray-400 focus:outline-none focus:border-gray-400 focus:shadow-outline-gray active:bg-gray-400 transition duration-150 ease-in-out"
+                  className="bg-gray-900 w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-primary hover:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray active:bg-gray-900 transition duration-150 ease-in-out"
                 >
                   Sign up
                 </button>
@@ -199,25 +182,31 @@ const Register = () => {
           </div>
           <p className="text-center text-gray-300 text-sm">
             Already have an account?{" "}
-            <a href="#" className="text-primary font-medium">
+            <a href="/login" className="text-primary font-medium">
               Sign in
             </a>
           </p>
         </form>
       ) : (
-        <div>
+        <div className="bg-primary rounded-lg px-8 py-10 mb-6">
           <h1 className="text-2xl text-center mb-6">
             Already logged in as {user.name}
-          </h1>
-          <button onClick={handleLogout} >
-            Logout
-          </button>
+          </h1>{" "}
+          <div className="mt-6">
+            <span className="block w-full rounded-md shadow-sm">
+              <button
+                type="submit"
+                onClick={logout}
+                className="bg-gray-800 w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-primary  hover:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray active:bg-gray-900 transition duration-150 ease-in-out"
+              >
+                Logout
+              </button>
+            </span>
+          </div>
         </div>
       )}
     </div>
   );
 };
-
-/
 
 export default Register;

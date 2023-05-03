@@ -29,6 +29,4 @@ const memorySchema = new mongoose.Schema(
   }
 );
 
-export const userProgessModel = mongoose.model("UserProgress", memorySchema);
-
-export default mongoose.model("User", userSchema);
+export default mongoose.model("Memory", memorySchema);

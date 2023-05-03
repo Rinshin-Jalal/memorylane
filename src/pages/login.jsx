@@ -42,9 +42,9 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-black min-h-screen flex items-center justify-center flex-col">
+    <div className=" min-h-screen flex items-center justify-center flex-col">
       {!isAuthenticated ? (
-        <div className="w-full max-w-lg bg-gray-900 py-30 rounded-2xl">
+        <div className="w-full max-w-lg  py-30 rounded-2xl">
           <form>
             <div className="bg-primary rounded-lg px-8 py-10 mb-6">
               <h1 className="text-3xl font-bold font-mono text-center mb-6">
@@ -77,7 +77,7 @@ const Login = () => {
                     placeholder="rinzo@memorylane.io"
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
-                    className="block w-full border border-primary rounded-lg py-2 pl-10 pr-3 text-primary placeholder-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:placeholder-gray-400 sm:text-sm sm:leading-5"
+                    className="bg-gray-900 block w-full border border-primary rounded-lg py-2 pl-10 pr-3 text-primary placeholder-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:placeholder-gray-400 sm:text-sm sm:leading-5"
                   />
                 </div>
               </div>
@@ -108,7 +108,7 @@ const Login = () => {
                     placeholder="********"
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
-                    className="block w-full border border-primary rounded-lg py-2 pl-10 pr-3 text-primary placeholder-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:placeholder-gray-400 sm:text-sm sm:leading-5"
+                    className="bg-gray-900 block w-full border border-primary rounded-lg py-2 pl-10 pr-3 text-primary placeholder-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:placeholder-gray-400 sm:text-sm sm:leading-5"
                   />
                 </div>
               </div>
@@ -118,7 +118,7 @@ const Login = () => {
                   <button
                     type="submit"
                     onClick={handleSubmit}
-                    className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-black bg-gray-300 hover:bg-gray-500 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-500 transition duration-150 ease-in-out"
+                    className="bg-gray-900 w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white hover:bg-gray-700 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-500 transition duration-150 ease-in-out"
                   >
                     login
                   </button>
@@ -152,13 +152,15 @@ const Login = () => {
         </div>
       ) : (
         <div className="bg-primary rounded-lg px-8 py-10 mb-6">
-          <h1 className="text-2xl text-center mb-6">Welcome {user?.name}</h1>
+          <h1 className="text-2xl text-center mb-6">
+            Already logged in as {user.name}
+          </h1>{" "}
           <div className="mt-6">
             <span className="block w-full rounded-md shadow-sm">
               <button
                 type="submit"
                 onClick={logout}
-                className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-primary bg-gray-300 hover:bg-gray-400 focus:outline-none focus:border-gray-400 focus:shadow-outline-gray active:bg-gray-400 transition duration-150 ease-in-out"
+                className="bg-gray-800 w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-primary  hover:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray active:bg-gray-900 transition duration-150 ease-in-out"
               >
                 Logout
               </button>

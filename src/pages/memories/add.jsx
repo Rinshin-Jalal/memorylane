@@ -18,7 +18,7 @@ export default function AddMemoryPage() {
         formData.append("image", image);
       }
 
-      const response = await axios.post("/api/memories", formData, {
+      const response = await axios.post("/api/memories/add", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

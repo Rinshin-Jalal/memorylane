@@ -1,6 +1,6 @@
 import { connect } from "@/utils/db";
 import isAuthenticated from "@/middlewares/isAuthenticated";
-import memoryModel from "../../../models/memoryModel";
+import memoryModel from "@/models/memoryModel";
 
 async function handler(req, res) {
   if (req.method !== "GET") {
