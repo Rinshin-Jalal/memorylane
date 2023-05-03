@@ -44,4 +44,4 @@ serverless/
 .pnp.js
 
 # Jest
-.coverage/
+.coverage/.env
